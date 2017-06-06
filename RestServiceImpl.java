@@ -1,6 +1,8 @@
 package com.rest.sample.service.impl;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -21,6 +23,21 @@ public class RestServiceImpl implements RestService {
 		stu.setId(id);
 		stu.setName("My Name");
 		return stu;
+	}
+	
+	@Override
+	@POST
+	@Path("/XML")
+	@Produces(MediaType.APPLICATION_XML)
+	@Consumes(MediaType.APPLICATION_XML)
+	public Student getStudentByXML(Student s) {	
+		
+		if(s == null) {
+			return new Student();
+		}
+		
+		s.setName("My Name");
+		return s;
 	}
 
 }

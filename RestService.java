@@ -5,5 +5,7 @@ import com.rest.sample.model.Student;
 public interface RestService {
 	
 	Student getStudentById(int id);
+
+	Student getStudentByXML(Student s);
 	
 }
